@@ -1,30 +1,33 @@
-import { hasLocale, NextIntlClientProvider } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
 import ThemeProvider from '@/theme/theme-provider';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Comic_Neue } from 'next/font/google';
-import { notFound } from 'next/navigation';
 import Navbar from "@/components/navbar";
-import { routing } from '@/i18n/routing';
 import { ReactNode } from 'react';
-import { Metadata } from 'next';
 import "../globals.css";
+import { locales } from '@/i18n/config';
 
 const comicNeue = Comic_Neue({ subsets: ['latin'], weight: '400' });
-
-export const metadata: Metadata = {
-  title: "AMHG-A4GOD Portfolio Website",
-  description: "This is my portfolio"
-}
 
 type Props = {
   children: ReactNode;
   params: Promise<{ locale: string }>;
+};
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
 }
+
+export async function generateMetadata({ params }: Omit<Props, 'children'>) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "RootLayout" });
+
+  return { title: t('title'), description: t('description') };
+}
+
 export default async function RootLayout({ children, params }: Props) {
   const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
+  setRequestLocale(locale);
 
   const messages = await getMessages();
 

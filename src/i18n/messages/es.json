@@ -1,8 +1,15 @@
 {
+    "RootLayout": {
+        "title": "AMHG-A4GOD Portfolio Sitio Web",
+        "description": "Este es mi portafolio"
+    },
     "HomePage": {
         "title": "Hola mundo!",
         "button": "Botón",
         "description": "Trabajando con <code>NextJS</code>"
+    },
+    "BlogPage": {
+        "title": "Blog Es"
     },
     "LocaleSwitcher": {
         "label": "Cambiar idioma",

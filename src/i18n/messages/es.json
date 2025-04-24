@@ -1,0 +1,18 @@
+{
+    "HomePage": {
+        "title": "Hola mundo!",
+        "button": "Botón",
+        "description": "Trabajando con <code>NextJS</code>"
+    },
+    "LocaleSwitcher": {
+        "label": "Cambiar idioma",
+        "locale": "{locale, select, es {🇪🇸 Español} en {🇺🇸 Inglés} other {Desconocido}}"
+    },
+    "NotFound": {
+        "title": "Página no encontrada",
+        "message": "Lo sentimos, la página que buscas no existe."
+    },
+    "Loading": {
+        "message": "Cargando..."
+    }
+}

@@ -4,8 +4,9 @@ import ThemeToggle from "@/theme/toggle-theme";
 
 export default function Navbar() {
     return (
-        <header className="bg-white dark:bg-[#191919] text-[#37352f] dark:text-[#ffffffcf] shadow-box-shadow-first sticky top-0 z-10 h-11 w-full">
+        <header className="bg-transparent sticky top-0 z-10 h-11 w-full">
             <Link href={"/blog"}>Blog</Link>
+            <Link href={"/animated"}>Animated</Link>
             <div className="mx-auto flex h-full max-w-7xl justify-between items-center px-4">
                 <h1 className="text-md font-bold">My Website</h1>
                 <ThemeToggle />

@@ -2,37 +2,39 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-
-@layer base {
-
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
-@theme {
-  --shadow-box-shadow-first: 0px 1px 0px var(--shadow-color);
-  --color-button-border-color: var(--border-color);
-  --color-hover-background: var(--hover-background);
-  --color-active-background: var(--active-background);
+:root {
+  --color-bg1: rgb(11, 5, 24);
+  /* Fondo oscuro profundo */
+  --color-bg2: rgb(30, 10, 46);
+  /* Fondo violeta oscuro */
+  --color1: 67, 15, 115;
+  /* Violeta intenso */
+  --color2: 98, 40, 146;
+  /* Violeta real */
+  --color3: 123, 44, 191;
+  /* Púrpura vibrante */
+  --color4: 140, 60, 200;
+  /* Violeta eléctrico */
+  --color5: 160, 90, 210;
+  /* Lavanda oscuro */
+  --color6: 180, 110, 220;
+  /* Malva suave */
+  --color7: 200, 130, 230;
+  /* Lila claro */
+  --color-interactive: 150, 80, 210;
+  /* Violeta interactivo */
+  --circle-size: 55%;
+  --animation-speed: 1.4;
+  --spread-distance: 50%;
+  /* Mayor rango de movimiento */
 }
 
-@layer base {
-  :root {
-    --shadow-color: rgba(55, 53, 47, 0.09);
-    --border-color: rgba(55, 53, 47, 0.09);
-    --hover-background: rgba(55, 53, 47, 0.06);
-    --active-background: rgba(55, 53, 47, 0.16);
-  }
 
-  .dark {
-    --shadow-color: rgba(255, 255, 255, 0.094);
-    --border-color: rgba(255, 255, 255, 0.094);
-    --hover-background: rgba(255, 255, 255, 0.055);
-    --active-background: rgba(255, 255, 255, 0.03);
-  }
+.text-overlay {
+  @apply fixed inset-0 z-[100] flex items-center justify-center text-[96px] text-white/80 pointer-events-none;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
 }

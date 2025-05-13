@@ -13,7 +13,7 @@
     },
     "LocaleSwitcher": {
         "label": "Change Language",
-        "locale": "{locale, select, es {🇪🇸 Spanish} en {🇺🇸 English} other {Unknown}}"
+        "locale": "{locale, select, es {🇪🇸 ES} en {🇺🇸 EN} other {Unknown}}"
     },
     "NotFound": {
         "title": "Page not found",

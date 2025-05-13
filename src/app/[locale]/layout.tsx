@@ -32,8 +32,9 @@ export default async function RootLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className={`${comicNeue.className} bg-white dark:bg-[#191919] text-[#37352f] dark:text-[#ffffffcf]`}>
+    <html lang={locale} className='overflow-y-scroll scrollbar-hide scroll-smooth' suppressHydrationWarning>
+      <body className={`${comicNeue.className}`}>
+        {/* <body className={`${comicNeue.className} bg-white dark:bg-[#191919] text-[#37352f] dark:text-[#ffffffcf]`}> */}
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"

@@ -1,111 +1,127 @@
 .gradientsContainer {
-    filter: url(#goo) blur(60px);
+    filter: url(#goo) blur(5rem);
     opacity: 0.9;
 }
 
-.g1,
-.g2,
-.g3,
-.g4,
-.g5,
 .interactive {
     background: radial-gradient(circle at center,
-            rgba(var(--color), 0.6) 0,
-            /* Reduced opacity */
-            rgba(var(--color), 0) 70%
-            /* Larger fade-out */
-        );
+            rgba(var(--bubble1), 0.6) 0,
+            rgba(var(--bubble1), 0) 70%);
     mix-blend-mode: var(--blending);
     position: absolute;
     will-change: transform;
-    /* Improve performance */
 }
 
-.figure {
-    background: radial-gradient(circle at center,
-            rgba(var(--color), 0.6) 0,
-            rgba(var(--color), 0) 70%);
-    mix-blend-mode: var(--blending);
+/* TODO: cambiar tamano en mobile */
+.bubble1 {
     position: absolute;
-    will-change: transform;
-    width: var(--circle-size);
-    height: var(--circle-size);
+    background-color: var(--bubble1);
+    top: -10;
+    left: 0;
+    animation: zig-zag calc(40s) linear infinite;
+    width: 25rem;
+    height: 25rem;
 }
 
-.g1 {
-    --color: var(--color1);
-    top: calc(15% - var(--circle-size)/2);
-    left: calc(10% - var(--circle-size)/2);
-    animation: spiral calc(50s * var(--animation-speed)) linear infinite;
+.bubble2 {
+    position: absolute;
+    background-color: var(--bubble2);
+    top: 30;
+    right: 0;
+    animation: spiral calc(40s) ease-in-out infinite;
+    width: 20rem;
+    height: 20rem;
 }
 
-.g2 {
-    --color: var(--color2);
-    top: calc(85% - var(--circle-size)/2);
-    left: calc(90% - var(--circle-size)/2);
-    animation: diagonal-sweep calc(45s * var(--animation-speed)) ease-in-out infinite alternate;
+.bubble3 {
+    position: absolute;
+    background-color: var(--bubble3);
+    top: 100;
+    left: 30;
+    animation: diagonal-drift calc(50s) linear infinite;
+    height: 25rem;
+    width: 25rem;
 }
 
-.g3 {
-    --color: var(--color3);
-    top: calc(50% - var(--circle-size)/2);
-    left: calc(20% - var(--circle-size)/2);
-    animation: orbit-x calc(60s * var(--animation-speed)) linear infinite;
+.bubble4 {
+    position: absolute;
+    background-color: var(--bubble4);
+    top: 250;
+    right: 250;
+    animation: pendulum calc(50s) ease-in-out infinite;
+    height: 25rem;
+    width: 25rem;
 }
 
-.g4 {
-    --color: var(--color4);
-    top: calc(70% - var(--circle-size)/2);
-    left: calc(80% - var(--circle-size)/2);
-    animation: pendulum calc(55s * var(--animation-speed)) ease-in-out infinite;
+.bubble5 {
+    position: absolute;
+    background-color: var(--bubble5);
+    top: 400;
+    left: 250;
+    animation: wave-motion calc(40s) linear infinite;
+    height: 20rem;
+    width: 20rem;
+
 }
 
-.g5 {
-    --color: var(--color5);
-    top: calc(30% - var(--circle-size)/2);
-    left: calc(50% - var(--circle-size)/2);
-    animation: wave-motion calc(40s * var(--animation-speed)) linear infinite;
+.bubble6 {
+    position: absolute;
+    background-color: var(--bubble6);
+    top: 600;
+    right: 400;
+    animation: pulse-move calc(65s) linear infinite;
+    height: 25rem;
+    width: 25rem;
 }
 
-.g6 {
-    --color: var(--color6);
-    top: calc(90% - var(--circle-size)/2);
-    left: calc(10% - var(--circle-size)/2);
-    animation: cross-screen calc(65s * var(--animation-speed)) linear infinite;
+.bubble7 {
+    position: absolute;
+    background-color: var(--bubble7);
+    top: 600;
+    left: 400;
+    animation: diagonal-sweep calc(50s) ease-in-out infinite;
+    height: 25rem;
+    width: 25rem;
 }
 
-.g7 {
-    --color: var(--color7);
-    top: calc(10% - var(--circle-size)/2);
-    left: calc(70% - var(--circle-size)/2);
-    animation: zig-zag calc(50s * var(--animation-speed)) ease-in-out infinite;
+.bubble8 {
+    position: absolute;
+    background-color: var(--bubble7);
+    top: 900;
+    left: 300;
+    animation: random-drift calc(50s) linear infinite;
+    height: 25rem;
+    width: 25rem;
+}
+
+.bubble9 {
+    position: absolute;
+    background-color: var(--bubble7);
+    top: 800;
+    right: 300;
+    animation: move-vertical calc(50s) ease-in-out infinite;
+    height: 25rem;
+    width: 25rem;
+}
+
+.bubble10 {
+    position: absolute;
+    background-color: var(--bubble7);
+    top: 100;
+    left: 600;
+    animation: move-diagonal calc(50s) linear infinite;
+    height: 25rem;
+    width: 25rem;
 }
 
 .interactive {
-    --color: var(--color-interactive);
-    width: 40%;
-    height: 40%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--bubble-interactive);
+    width: 20rem;
+    height: 20rem;
     opacity: 0.4;
-}
-
-@keyframes float-x {
-    0% {
-        transform: translateX(calc(var(--spread-distance) * -1));
-    }
-
-    100% {
-        transform: translateX(var(--spread-distance));
-    }
-}
-
-@keyframes float-y {
-    0% {
-        transform: translateY(calc(var(--spread-distance) * -1));
-    }
-
-    100% {
-        transform: translateY(var(--spread-distance));
-    }
 }
 
 @keyframes diagonal-drift {
@@ -142,20 +158,6 @@
     }
 }
 
-@keyframes figure-eight {
-    0% {
-        transform: translate(calc(var(--spread-distance) * -1), 0);
-    }
-
-    50% {
-        transform: translate(var(--spread-distance), calc(var(--spread-distance) * 2));
-    }
-
-    100% {
-        transform: translate(calc(var(--spread-distance) * -1), 0);
-    }
-}
-
 @keyframes diagonal-sweep {
     0% {
         transform: translate(calc(var(--spread-distance) * -1), calc(var(--spread-distance) * -1));
@@ -163,16 +165,6 @@
 
     100% {
         transform: translate(var(--spread-distance), var(--spread-distance));
-    }
-}
-
-@keyframes orbit-x {
-    0% {
-        transform: translateX(calc(var(--spread-distance) * -2));
-    }
-
-    100% {
-        transform: translateX(calc(var(--spread-distance) * 2));
     }
 }
 
@@ -207,20 +199,6 @@
 
     100% {
         transform: translate(0, 0) scale(1);
-    }
-}
-
-@keyframes cross-screen {
-    0% {
-        transform: translate(calc(var(--spread-distance) * -2), calc(var(--spread-distance) * -1));
-    }
-
-    50% {
-        transform: translate(calc(var(--spread-distance) * 2), calc(var(--spread-distance) * 1));
-    }
-
-    100% {
-        transform: translate(calc(var(--spread-distance) * -2), calc(var(--spread-distance) * -1));
     }
 }
 
@@ -268,7 +246,7 @@
     }
 }
 
-@keyframes moveDiagonal {
+@keyframes move-diagonal {
     0% {
         transform: translate(-40%, -20%) rotate(0deg);
     }
@@ -282,22 +260,7 @@
     }
 }
 
-@keyframes moveInCircle {
-    0% {
-        transform: rotate(0deg) scale(1);
-    }
-
-    50% {
-        transform: rotate(180deg) scale(1.05);
-    }
-
-    /* Más movimiento */
-    100% {
-        transform: rotate(360deg) scale(1);
-    }
-}
-
-@keyframes moveVertical {
+@keyframes move-vertical {
     0% {
         transform: translateY(-35%) scale(0.98);
     }
@@ -306,23 +269,7 @@
         transform: translateY(35%) scale(1.02);
     }
 
-    /* Mayor rango */
     100% {
         transform: translateY(-35%) scale(0.98);
-    }
-}
-
-@keyframes moveHorizontal {
-    0% {
-        transform: translateX(-35%) translateY(-8%);
-    }
-
-    50% {
-        transform: translateX(35%) translateY(8%);
-    }
-
-    /* Más pronunciado */
-    100% {
-        transform: translateX(-35%) translateY(-8%);
     }
 }

@@ -1,12 +1,13 @@
-"use client";
+'use client'
 
 import { ChangeEvent, ReactNode, useTransition } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { FiChevronDown } from "react-icons/fi";
 
 type Props = {
-    children: ReactNode;
-    defaultLocale: string;
-    label: string;
+    children: ReactNode
+    defaultLocale: string
+    label: string
 }
 
 export default function LocaleSwitcherSelect({ children, defaultLocale, label }: Props) {
@@ -15,23 +16,27 @@ export default function LocaleSwitcherSelect({ children, defaultLocale, label }:
     const pathname = usePathname();
 
     const handleLocaleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        const nextLocale = e.target.value;
+        const nextLocale = e.target.value
         startTransition(() => {
-            router.replace(
-                { pathname },
-                { locale: nextLocale }
-            );
+            router.replace({ pathname }, { locale: nextLocale })
         })
     }
 
     return (
-        <label className={`relative text-gray-400 ${isPending && 'transition-opacity [&:disabled]:opacity-30'}`}>
+        <label className={`relative text-gray-900 dark:text-gray-200 ${isPending && 'transition-opacity [&:disabled]:opacity-30'}`}>
             <p className="sr-only">{label}</p>
             <select
                 title={label}
-                className="inline-flex appearance-none bg-transparent py-3 pl-2 pr-6" defaultValue={defaultLocale}
+                className="inline-flex h-10 w-16 appearance-none cursor-pointer bg-transparent py-2 pl-2 pr-6 border-1 border-gray-900 dark:border-gray-200 dark:bg-gray-800/20 backdrop-blur-sm hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md"
+                defaultValue={defaultLocale}
                 onChange={handleLocaleChange}
-            >{children}</select>
-            <span className="pointer-events-none absolute right-2 top-[8px]">^</span>
-        </label>);
+                disabled={isPending}
+            >
+                {children}
+            </select>
+            <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2">
+                <FiChevronDown className="w-5 h-5 text-gray-900 dark:text-white" />
+            </span>
+        </label>
+    )
 }

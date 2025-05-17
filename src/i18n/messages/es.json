@@ -8,12 +8,22 @@
         "button": "Botón",
         "description": "Trabajando con <code>NextJS</code>"
     },
+    "Logo": {
+        "alt": "AMHG-A4GOD Portfolio"
+    },
     "BlogPage": {
         "title": "Blog Es"
     },
     "LocaleSwitcher": {
-        "label": "Cambiar idioma",
-        "locale": "{locale, select, es {🇪🇸 ES} en {🇺🇸 EN} other {Desconocido}}"
+        "label": "Cambiar Idioma",
+        "locale": {
+            "en": "EN",
+            "es": "ES"
+        }
+    },
+    "ThemeSwitcher": {
+        "title": "Cambiar Tema",
+        "aria": "Cambiar Tema"
     },
     "NotFound": {
         "title": "Página no encontrada",

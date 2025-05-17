@@ -2,10 +2,14 @@ import { NextIntlClientProvider } from 'next-intl';
 import ThemeProvider from '@/theme/theme-provider';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Comic_Neue } from 'next/font/google';
-import Navbar from "@/components/navbar";
+import { AnimatedHeader } from "@/components/Header";
 import { ReactNode } from 'react';
-import "../globals.css";
 import { locales } from '@/i18n/config';
+import "../globals.css";
+
+import Logo from '@/components/Logo';
+import { Navbar, ContactComponent, Options } from '@/components/Header';
+import { contact_info, routes } from '@/config/navigation';
 
 const comicNeue = Comic_Neue({ subsets: ['latin'], weight: '400' });
 
@@ -33,8 +37,7 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} className='overflow-y-scroll scrollbar-hide scroll-smooth' suppressHydrationWarning>
-      <body className={`${comicNeue.className}`}>
-        {/* <body className={`${comicNeue.className} bg-white dark:bg-[#191919] text-[#37352f] dark:text-[#ffffffcf]`}> */}
+      <body className={`${comicNeue.className} bg-white dark:bg-[#191919] text-[#37352f] dark:text-[#ffffffcf]`}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
@@ -42,7 +45,12 @@ export default async function RootLayout({ children, params }: Props) {
             enableSystem
             disableTransitionOnChange
           >
-            <Navbar />
+            <AnimatedHeader>
+              <Logo />
+              <Navbar routes={routes} />
+              <ContactComponent {...contact_info} />
+              <Options />
+            </AnimatedHeader>
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
